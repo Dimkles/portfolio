@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef } from 'react';
+import AppRouter from './components/AppRouter';
+import Header from './components/header/Header';
+import { parallaxinit } from './service/parallax';
+import './style/App.scss'
 
-function App() {
+const App = () => {
+  const refApp = useRef(null)
+  useEffect(() => {
+    parallaxinit(refApp.current)
+  }, [refApp])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div ref={refApp} className='app'>
+      <div className='app__bg'></div>
+      <div className="app__content">
+        <Header />
+        <AppRouter />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

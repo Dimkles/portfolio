@@ -1,0 +1,28 @@
+.menu {
+    &__list {
+        display: flex;
+        gap: 25px;
+
+    }
+
+    &__link {
+        color: #9aa7af;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.2em;
+        transition: all 0.2s ease;
+        text-shadow: rgb(255, 255, 255) 3px 0 10px;
+
+        &:hover {
+            color: #f1d03b;
+        }
+
+        &--active {
+            text-shadow: #FC0 3px 0 10px;
+            color: #f1d03b;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.2em;
+        }
+    }
+}
