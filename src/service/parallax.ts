@@ -2,8 +2,8 @@ import React from "react"
 
 export const parallaxinit = (app: any) => {
     if (app) {
-        const speed = 0.05;
-        const ratio = 30;
+        const speed = 0.03;
+        const ratio = 50;
 
         let positionX = 0, positionY = 0;
         let coordXpocent = 0, coordYpocent = 0;

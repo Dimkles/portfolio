@@ -1,16 +1,14 @@
 .projects {
-    color: beige;
 
     &__container {
-        height: calc(100vh - 80px);
+        padding-top: 50px;
     }
 
     &__title {
-        padding-top: 50px;
         font-size: 48px;
         font-weight: bold;
         line-height: 1.2em;
-        margin-bottom: 10px;
+        margin-bottom: 100px;
     }
 
 }

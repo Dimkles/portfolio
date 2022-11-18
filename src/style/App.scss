@@ -1,6 +1,9 @@
 .app {
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    max-height: 100vh;
+    color: rgb(227, 233, 233);
 
     &__bg {
         background-image: url('./../img/bg.jpg');
