@@ -33,7 +33,7 @@ const ProjectSlide: FC<ProjectSlideProps> = ({ project }) => {
                 </ul>
             </div>
             <div className="projectSlideContent__button">
-                <a target={'_blank'} href={project.link} >Посмотреть</a>
+                <a rel="noreferrer" target={'_blank'} href={project.link} >Посмотреть</a>
             </div>
         </div>
     );

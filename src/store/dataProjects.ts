@@ -3,7 +3,7 @@ import { IProject } from "../models/IProject";
 export const dataProjects: IProject[] = [
     {
         name: 'Корпоративный сайт',
-        description: `Верстка сайта выполнена на Bootstrap. Натянута на WordPress. С помощью WordPress реализовано: 
+        description: `Верстка сайта выполнена на Bootstrap. Натянут на WordPress. С помощью WordPress реализовано: 
         блог, кастомное меню, футер, сайдбар.
         Сайт находится в процессе натяжки
         `,
@@ -27,7 +27,7 @@ export const dataProjects: IProject[] = [
         `,
         link: 'https://dimkless.ru/',
         technologies: ['Html', 'CSS', 'TypeScript', 'ReactJS'],
-        image: 'gellary.png'
+        image: 'main.png'
     }
 
 ]

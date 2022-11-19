@@ -22,9 +22,28 @@ const ProjectsSlider: FC<ProjectsSliderProps> = ({ container }) => {
         <React.Fragment>
             {offsetBefore &&
                 <Swiper
-                    spaceBetween={20}
-                    slidesPerView={2.5}
+                    spaceBetween={10}
+                    slidesPerView={1.1}
+                    loop={true}
                     slidesOffsetBefore={offsetBefore}
+                    breakpoints={{
+                        1200: {
+                            slidesPerView: 2.5,
+                            spaceBetween: 20,
+                        },
+                        960: {
+                            slidesPerView: 2,
+
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                        },
+                        425: {
+                            slidesPerView: 1.2,
+                            spaceBetween: 10,
+                        },
+                    }}
                 >
                     {
                         dataProjects.map((project) =>

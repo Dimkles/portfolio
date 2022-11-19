@@ -1,7 +1,7 @@
 .projectSlideContent {
     position: relative;
     overflow: hidden;
-    height: 400px;
+    min-height: 450px;
     padding: 15px 20px;
     padding-top: 30px;
     display: flex;
@@ -44,6 +44,11 @@
         font-weight: bold;
         font-size: 30px;
         margin-bottom: 25px;
+
+        @media (max-width: 960px) {
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
     }
 
     &__text {
@@ -55,6 +60,15 @@
         letter-spacing: 0.02em;
         margin-bottom: 15px;
         padding-right: 30%;
+
+        @media (max-width: 960px) {
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            padding-right: 0px;
+        }
     }
 
     &__technologies {
@@ -93,18 +107,39 @@
 
         &__title {
             font-size: 25px;
+
+            @media (max-width: 768px) {
+                font-size: 22px;
+            }
+
+            @media (max-width: 425px) {
+                font-size: 20px;
+            }
         }
 
         &__list {
-            padding: 15px 10px;
+            padding: 15px 0px;
             display: flex;
             gap: 10px;
+
+            @media (max-width: 425px) {
+                gap: 7px;
+            }
         }
 
         &__item {
             padding: 5px;
             border: 1px solid #9aa7af;
             border-radius: 5px;
+
+            @media (max-width: 768px) {
+                font-size: 15px;
+            }
+
+            @media (max-width: 425px) {
+                padding: 5px;
+                font-size: 12px;
+            }
         }
     }
 }

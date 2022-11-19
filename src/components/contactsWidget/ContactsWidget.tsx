@@ -10,17 +10,17 @@ const ContactsWidget: FC = () => {
                     </a>
                 </li> */}
                 <li>
-                    <a target={'_blank'} href="https://t.me/Dimkless3034" className='contsctsWidget__link contsctsWidget__link--tg'>
+                    <a target={'_blank'} rel="noreferrer" href="https://t.me/Dimkless3034" className='contsctsWidget__link contsctsWidget__link--tg'>
                         <img src="./img/tg.svg" alt="" />
                     </a>
                 </li>
                 <li>
-                    <a target={'_blank'} href="https://vk.com/dimkless3034" className='contsctsWidget__link contsctsWidget__link--vk'>
+                    <a target={'_blank'} rel="noreferrer" href="https://vk.com/dimkless3034" className='contsctsWidget__link contsctsWidget__link--vk'>
                         <img src="./img/vk.svg" alt="" />
                     </a>
                 </li>
                 <li>
-                    <a target={'_blank'} href="https://github.com/Dimkles" className='contsctsWidget__link contsctsWidget__link--github'>
+                    <a target={'_blank'} rel="noreferrer" href="https://github.com/Dimkles" className='contsctsWidget__link contsctsWidget__link--github'>
                         <img src="./img/github.svg" alt="" />
                     </a>
                 </li>

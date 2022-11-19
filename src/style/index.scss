@@ -14,7 +14,22 @@ code {
 }
 
 ._container {
-  width: 1270px;
+  width: 1200px;
   margin: 0 auto;
 
+  @media (max-width: 1240px) {
+    width: 1020px;
+  }
+
+  @media (max-width: 1080px) {
+    width: 950px;
+  }
+
+  @media (max-width: 968px) {
+    width: 720px;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 }
