@@ -1,10 +1,14 @@
 import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import { redirect, Route, Routes, useLocation } from "react-router-dom";
 import { PublickRoutes } from '../routes/routes';
 
+
 const AppRouter = () => {
+    const history = useLocation()
+    console.log(history.pathname)
+    redirect(history.pathname)
     return (
-        <Routes>
+        <Routes >
             {PublickRoutes.map(route =>
                 <Route
                     path={route.path}
