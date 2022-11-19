@@ -28,6 +28,15 @@ export const dataProjects: IProject[] = [
         link: 'https://dimkless.ru/',
         technologies: ['Html', 'CSS', 'TypeScript', 'ReactJS'],
         image: 'main.png'
+    },
+    {
+        name: 'Сайт путешествий',
+        description: `
+            Небольшой лендинг туристического агентсва. Полностью адаптивная верстка, несколько различных слайдеров. Реализована отправка заявок на почту
+        `,
+        link: 'https://dimkless.ru/pero-travel',
+        technologies: ['Html', 'CSS', 'javaScript', "PHP"],
+        image: 'pero.png'
     }
 
 ]
