@@ -25,11 +25,13 @@ const ProjectsSlider: FC<ProjectsSliderProps> = ({ container }) => {
                     spaceBetween={10}
                     slidesPerView={1.1}
                     loop={true}
+                    className='projectSlider'
                     slidesOffsetBefore={offsetBefore}
+
                     breakpoints={{
                         1200: {
-                            slidesPerView: 2.5,
-                            spaceBetween: 20,
+                            slidesPerView: 3,
+                            spaceBetween: 30,
                         },
                         960: {
                             slidesPerView: 2,

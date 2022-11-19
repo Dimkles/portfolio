@@ -6,8 +6,9 @@
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    border-radius: 7px;
+
     text-shadow: rgb(0, 0, 0) 20px 0 10px;
+
 
     &__bg {
         position: absolute;
@@ -44,6 +45,8 @@
         font-weight: bold;
         font-size: 30px;
         margin-bottom: 25px;
+
+
 
         @media (max-width: 960px) {
             font-size: 25px;
@@ -85,18 +88,18 @@
             display: block;
             width: max-content;
             position: relative;
-            border-radius: 15px;
+            border-radius: 30px;
             z-index: 3;
             padding: 10px 25px;
             font-weight: bold;
             font-size: 20px;
             color: #9aa7af;
-            border: 1px solid #9aa7af;
+            border: 2px solid #9aa7af;
             transition: all 0.25s ease;
 
             &:hover {
-                color: #dbe6ec;
-                border: 1px solid #dbe6ec;
+                color: #f1d03b;
+                border: 2px solid #f1d03b;
             }
         }
     }
