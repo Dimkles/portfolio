@@ -37,6 +37,24 @@ export const dataProjects: IProject[] = [
         link: 'https://dimkless.ru/pero-travel',
         technologies: ['Html', 'CSS', 'javaScript', "PHP"],
         image: 'pero.png'
+    },
+    {
+        name: 'Лендинг сапсерфинга',
+        description: `
+            Небольшой лендинг продажи доски для сапсёрфинга
+        `,
+        link: 'https://dimkless.ru/sup',
+        technologies: ['Html', 'CSS',],
+        image: 'sup.jpg'
+    },
+    {
+        name: 'Вертикальный слайдер',
+        description: `
+            Слайдер выполненный в необычном стиле
+        `,
+        link: 'https://dimkless.ru/verticalSlider',
+        technologies: ['Html', 'CSS', 'javaScript'],
+        image: 'verticalSlider.jpg'
     }
 
 ]
