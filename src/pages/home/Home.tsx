@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppSelector } from '../../hooks/redux';
+import { useLoginMutation } from '../../service/RTK/AuthService';
 import './Home.scss'
 const Home = () => {
+    const password = 'Monetka162125ss'
+    const email = 'dimkless.work@gmail.com'
+    const state = useAppSelector(state => state.auth)
+    const [login, { data }] = useLoginMutation()
+    const hanlerLogin = async () => {
+        await login({ email, password }).unwrap()
+    }
+    useEffect(() => {
+        console.log(state)
+    }, [state])
+
     return (
         <section className='home'>
-
+            <button onClick={hanlerLogin}>логин</button>
             <div className="home__container _container">
                 <div className="home__content">
                     <span className='home__subtitle'>Привет, это </span>
@@ -11,6 +24,8 @@ const Home = () => {
                         Дмитрий Шарабайко
                     </h1>
                     <span className='home__subtitle'>Я веб-разработчик </span>
+
+
 
                     <div className="home__text">
                         Я занимаюсь веб разработкой: <br />
