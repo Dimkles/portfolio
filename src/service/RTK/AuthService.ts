@@ -1,7 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
+import { BaseQueryFn, createApi, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/dist/query/react'
 import { IUser } from '../../models/IUser'
 import { RootState } from '../../store/store'
-
+import { baseQueryWithReauth } from './service'
 interface loginBody {
     email: string,
     password: string
@@ -9,22 +9,11 @@ interface loginBody {
 
 export const authAPI = createApi({
     reducerPath: 'authAPI',
-
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:7000/auth',
-        prepareHeaders: (headers, { getState }) => {
-            const token = (getState() as RootState).auth.token || localStorage.getItem('token')
-            if (token) {
-                headers.set('authorization', `Bearer ${token}`)
-            }
-            return headers
-        },
-    }),
-
+    baseQuery: baseQueryWithReauth,
     endpoints: (build) => ({
         login: build.mutation<any, loginBody>({
             query: (body) => ({
-                url: '/login',
+                url: '/auth/login',
                 method: 'POST',
                 body
             })
