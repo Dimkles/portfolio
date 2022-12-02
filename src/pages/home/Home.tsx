@@ -1,30 +1,29 @@
 import React, { useEffect } from 'react';
+import Modal from '../../components/modal/Modal';
 import { useAppSelector } from '../../hooks/redux';
 import { useLoginMutation } from '../../service/RTK/AuthService';
 import { useGetAllUsersQuery } from '../../service/RTK/usersService';
 import './Home.scss'
 const Home = () => {
-    const password = 'Monetka162125ss'
-    const email = 'dimkless.work@gmail.com'
-    const { token } = useAppSelector(state => state.auth)
-    const [login, { data }] = useLoginMutation()
-    const { data: users } = useGetAllUsersQuery('')
-    const hanlerLogin = async () => {
-        await login({ email, password }).unwrap()
-    }
-    const getUsers = async () => {
-        await login({ email, password }).unwrap()
-    }
-    useEffect(() => {
-        if (token) {
-            localStorage.setItem('token', token)
-        }
-    }, [token])
+    // const password = 'Monetka162125ss'
+    // const email = 'dimkless.work@gmail.com'
+    // const { token } = useAppSelector(state => state.auth)
+    // const [login, { data }] = useLoginMutation()
+    // const { data: users } = useGetAllUsersQuery('')
+    // const hanlerLogin = async () => {
+    //     await login({ email, password }).unwrap()
+    // }
+    // const getUsers = async () => {
+    //     await login({ email, password }).unwrap()
+    // }
+    // useEffect(() => {
+    //     if (token) {
+    //         localStorage.setItem('token', token)
+    //     }
+    // }, [token])
 
     return (
         <section className='home'>
-            <button onClick={hanlerLogin}>логин</button>
-            <button onClick={getUsers}>Пользователи</button>
             <div className="home__container _container">
                 <div className="home__content">
                     <span className='home__subtitle'>Привет, это </span>
