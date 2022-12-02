@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { PublickRoutes } from '../routes/routes';
 
 
-const AppRouter = () => {
+const AppRouter: FC = () => {
     const navigate = useNavigate()
     const hash = useLocation().hash
     useEffect(() => {

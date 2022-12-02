@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import AppRouter from './components/AppRouter';
 import Header from './components/header/Header';
-import Modal from './components/modal/Modal';
 import { parallaxinit } from './service/parallax';
 import './style/App.scss'
 
-const App = () => {
+const App: FC = () => {
   const refApp = useRef(null)
   useEffect(() => {
     parallaxinit(refApp.current)

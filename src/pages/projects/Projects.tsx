@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import { FC, useRef } from 'react';
 import ProjectsSlider from './components/ProjectSlider/ProjectsSlider';
 import './Projects.scss'
-const Projects = () => {
+const Projects: FC = () => {
 
     const container = useRef(null)
 

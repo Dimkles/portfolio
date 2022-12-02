@@ -1,4 +1,4 @@
-import { BaseQueryFn, createApi, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/dist/query/react'
+import { BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/dist/query/react'
 import { RootState } from '../../store/store'
 import { Mutex } from 'async-mutex'
 
@@ -7,7 +7,7 @@ const mutex = new Mutex()
 const baseQuery = fetchBaseQuery({
     baseUrl: 'http://localhost:7000',
     prepareHeaders: (headers, { getState }) => {
-        const token = (getState() as RootState).auth.token || localStorage.getItem('token')
+        const token = (getState() as RootState).user.token || localStorage.getItem('token')
         if (token) {
             headers.set('authorization', `Bearer ${token}`)
         }

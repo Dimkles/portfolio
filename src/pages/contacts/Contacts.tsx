@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './Contacts.scss'
-const Contacts = () => {
+const Contacts: FC = () => {
     return (
         <div className='contacts'>
             <div className="contacts__container _container">
