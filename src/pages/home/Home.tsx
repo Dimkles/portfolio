@@ -16,7 +16,6 @@ const Home = () => {
         await login({ email, password }).unwrap()
     }
     useEffect(() => {
-        console.log(token)
         if (token) {
             localStorage.setItem('token', token)
         }

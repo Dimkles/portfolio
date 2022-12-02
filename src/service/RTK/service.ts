@@ -29,7 +29,7 @@ export const baseQueryWithReauth: BaseQueryFn<
             try {
                 const refreshResult: any = await baseQuery('/auth/refresh', api, extraOptions)
                 if (refreshResult.data.token) {
-                    localStorage.setItem('token', `${refreshResult.data.token}`)
+                    localStorage.setItem('token', refreshResult.data.token)
                     result = await baseQuery(args, api, extraOptions)
                 } else {
                     console.log('logout')
