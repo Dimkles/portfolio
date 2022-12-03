@@ -1,10 +1,9 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react'
-import { baseQueryWithReauth } from './service'
+import { baseQuery, baseQueryWithReauth } from './service'
 interface loginBody {
     email: string,
     password: string
 }
-
 export const userAPI = createApi({
     reducerPath: 'userAPI',
     baseQuery: baseQueryWithReauth,
@@ -14,13 +13,31 @@ export const userAPI = createApi({
                 url: '/auth/login',
                 method: 'POST',
                 body,
-
             }),
         }),
-        logout: build.query({
-            query: () => '/auth/logout',
+        logout: build.mutation({
+            query: () => ({
+                url: '/auth/logout',
+                method: 'GET'
+            })
         }),
     }),
 })
 
-export const { useLoginMutation, useLogoutQuery } = userAPI
+export const checkAuthAPI = createApi({
+    reducerPath: 'checkAuthAPI',
+    baseQuery: baseQuery,
+    endpoints: (build) => ({
+        checkAuth: build.mutation({
+            query: () => ({
+                url: '/auth/refresh',
+                method: 'GET',
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+            })
+        }),
+    })
+})
+
+export const { useCheckAuthMutation } = checkAuthAPI
+
+export const { useLoginMutation, useLogoutMutation } = userAPI

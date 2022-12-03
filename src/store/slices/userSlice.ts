@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { IUser } from "../../models/IUser"
-import { userAPI } from "../../service/RTK/UserService"
+import { userAPI, checkAuthAPI } from "../../service/RTK/UserService"
 import { RootState } from "../store"
 
 interface UserState {
@@ -30,7 +30,16 @@ export const userSlice = createSlice({
         ).addMatcher(
             userAPI.endpoints.logout.matchFulfilled,
             (state) => {
-                state = initialState
+                state.user = {} as IUser
+                state.token = ''
+                state.isAuth = false
+            },
+        ).addMatcher(
+            checkAuthAPI.endpoints.checkAuth.matchFulfilled,
+            (state, { payload }) => {
+                state.user = payload.user
+                state.token = payload.token
+                state.isAuth = true
             },
         )
     },

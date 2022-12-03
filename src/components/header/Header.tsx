@@ -8,7 +8,6 @@ const Header: FC = () => {
         <header className='header'>
             <div className="header__container _container">
                 <Menu />
-                <ContactsWidget />
                 <AuthWidget />
             </div>
         </header>

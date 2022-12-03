@@ -1,13 +1,15 @@
 import { BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/dist/query/react'
-import { RootState } from '../../store/store'
 import { Mutex } from 'async-mutex'
+
 
 const mutex = new Mutex()
 
-const baseQuery = fetchBaseQuery({
+
+
+export const baseQuery = fetchBaseQuery({
     baseUrl: 'http://localhost:7000',
     prepareHeaders: (headers, { getState }) => {
-        const token = (getState() as RootState).user.token || localStorage.getItem('token')
+        const token = localStorage.getItem('token')
         if (token) {
             headers.set('authorization', `Bearer ${token}`)
         }
@@ -30,6 +32,8 @@ export const baseQueryWithReauth: BaseQueryFn<
                 const refreshResult: any = await baseQuery('/auth/refresh', api, extraOptions)
                 if (refreshResult.data.token) {
                     localStorage.setItem('token', refreshResult.data.token)
+
+                    console.log(refreshResult.data)
                     result = await baseQuery(args, api, extraOptions)
                 } else {
                     console.log('logout')

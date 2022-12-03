@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
-import { useAppSelector } from '../../hooks/redux';
+import React, { FC, useState } from 'react';
 import { useLoginMutation } from '../../service/RTK/UserService';
 import MyButton from '../myButton/MyButton';
 import MyInput from '../myInput/MyInput';
@@ -12,7 +11,6 @@ interface AuthFormProps {
 const AuthForm: FC<AuthFormProps> = ({ onSubmit }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const { isAuth } = useAppSelector(state => state.user)
     const [login] = useLoginMutation()
     const submitHandler = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -20,9 +18,7 @@ const AuthForm: FC<AuthFormProps> = ({ onSubmit }) => {
         localStorage.setItem('token', token)
         onSubmit(false)
     }
-    useEffect(() => {
-        console.log(isAuth)
-    }, [isAuth])
+
 
     return (
         <form onSubmit={submitHandler} className='authForm'>
