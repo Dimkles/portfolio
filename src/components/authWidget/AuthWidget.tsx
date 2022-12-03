@@ -4,9 +4,9 @@ import { useLogoutMutation } from '../../service/RTK/UserService';
 import AuthForm from '../authForm/AuthForm';
 import Modal from '../modal/Modal';
 import MyButton from '../myButton/MyButton';
-import './AuthWidget'
+import './AuthWidget.scss'
 const AuthWidget: FC = () => {
-    const { isAuth } = useAppSelector(state => state.user)
+    const { isAuth, user } = useAppSelector(state => state.user)
     const [modalAuthActive, setModalAuthActive] = useState(false)
     const [logout] = useLogoutMutation()
     const logoutHandler = async () => {
@@ -14,19 +14,19 @@ const AuthWidget: FC = () => {
         localStorage.removeItem('token')
     }
     return (
-        <div className='authWidget'>
-            {
-                isAuth
-                    ?
-                    <MyButton onClick={logoutHandler} type='button'>Выйти</MyButton>
-                    :
-                    <MyButton onClick={() => setModalAuthActive(true)} type='button'>Войти</MyButton>
-            }
-
-            <Modal active={modalAuthActive} setActive={setModalAuthActive}>
-                <AuthForm onSubmit={setModalAuthActive} />
-            </Modal>
-        </div>
+        isAuth
+            ?
+            <div className="authWidget">
+                <div className="authWidget__userEmail">{user.email}</div>
+                <MyButton onClick={logoutHandler} type='button'>Выйти</MyButton>
+            </div>
+            :
+            <div className="authWidget">
+                <MyButton onClick={() => setModalAuthActive(true)} type='button'>Войти</MyButton>
+                <Modal active={modalAuthActive} setActive={setModalAuthActive}>
+                    <AuthForm onSubmit={setModalAuthActive} />
+                </Modal>
+            </div>
     );
 };
 

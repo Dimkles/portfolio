@@ -1,12 +1,13 @@
+@import '../../style/_global.scss';
+
 .menu {
     &__list {
         display: flex;
         gap: 20px;
-
     }
 
     &__link {
-        color: #9aa7af;
+        color: $gray;
         font-weight: 500;
         font-size: 20px;
         line-height: 1.2em;
@@ -17,17 +18,9 @@
             color: #f1d03b;
         }
 
-        &--active {
+        &.active {
             text-shadow: #FC0 3px 0 10px;
             color: #f1d03b;
-            font-weight: 500;
-            font-size: 20px;
-            line-height: 1.2em;
-
-            @media (max-width: 425px) {
-                font-size: 20px;
-            }
-
         }
 
         @media (max-width: 425px) {

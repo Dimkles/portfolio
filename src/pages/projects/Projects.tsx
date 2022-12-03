@@ -1,10 +1,15 @@
-import { FC, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
+import { useFechAllProjectsQuery } from '../../service/RTK/ProjectService';
 import ProjectsSlider from './components/ProjectSlider/ProjectsSlider';
 import './Projects.scss'
 const Projects: FC = () => {
 
     const container = useRef(null)
 
+    const { data } = useFechAllProjectsQuery('')
+    useEffect(() => {
+        console.log(data)
+    }, [data])
 
     return (
         <div className='projects'>

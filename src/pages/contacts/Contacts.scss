@@ -1,22 +1,12 @@
-.contacts {
+@import '../../style/_global.scss';
 
+.contacts {
     &__container {
         padding-top: 50px;
     }
 
     &__title {
-        font-size: 48px;
-        font-weight: bold;
-        line-height: 1.2em;
-        margin-bottom: 100px;
-
-        @media (max-width: 768px) {
-            margin-bottom: 80px;
-        }
-
-        @media (max-width: 425px) {
-            margin-bottom: 50px;
-        }
+        @include title();
     }
 
     &__list {
