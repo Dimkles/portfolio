@@ -1,13 +1,9 @@
 import { BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/dist/query/react'
 import { Mutex } from 'async-mutex'
-
-
+import { BACKEND_URL } from '../../constants'
 const mutex = new Mutex()
-
-
-
 export const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://localhost:7000',
+    baseUrl: BACKEND_URL,
     prepareHeaders: (headers, { getState }) => {
         const token = localStorage.getItem('token')
         if (token) {

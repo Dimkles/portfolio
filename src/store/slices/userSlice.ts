@@ -3,8 +3,8 @@ import { IUser } from "../../models/IUser"
 import { userAPI, checkAuthAPI } from "../../service/RTK/UserService"
 import { RootState } from "../store"
 
-interface UserState {
-    isAuth: boolean
+export interface UserState {
+    isAuth?: boolean
     user: IUser
     token: string
 }

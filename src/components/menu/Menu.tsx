@@ -49,7 +49,7 @@ const Menu: FC = () => {
                             <li key={item.to} className="menu__item">
                                 <NavLink
                                     to={item.to}
-                                    className={({ isActive }) => isActive ? 'menu__link--active' : 'menu__link'}
+                                    className={({ isActive }) => isActive ? 'menu__link active' : 'menu__link'}
                                 >
                                     {item.value}
                                 </NavLink>
@@ -60,7 +60,7 @@ const Menu: FC = () => {
                         <li key={item.to} className="menu__item">
                             <NavLink
                                 to={item.to}
-                                className={({ isActive }) => isActive ? 'menu__link--active' : 'menu__link'}
+                                className={({ isActive }) => isActive ? 'menu__link active' : 'menu__link'}
                             >
                                 {item.value}
                             </NavLink>

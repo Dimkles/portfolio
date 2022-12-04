@@ -9,4 +9,12 @@
     &:hover {
         background: #bba130;
     }
+
+    &--red {
+        background: #f13b3b;
+
+        &:hover {
+            background: #bb3030;
+        }
+    }
 }

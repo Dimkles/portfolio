@@ -19,7 +19,7 @@ export const projectsSlice = createSlice({
         builder.addMatcher(
             projectAPI.endpoints.fechAllProjects.matchFulfilled,
             (state, { payload }) => {
-                state.projects = payload.projects
+                state.projects = payload
 
             },
         )

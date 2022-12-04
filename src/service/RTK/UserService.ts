@@ -1,4 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react'
+import { UserState } from '../../store/slices/userSlice'
 import { baseQuery, baseQueryWithReauth } from './service'
 interface loginBody {
     email: string,
@@ -8,7 +9,7 @@ export const userAPI = createApi({
     reducerPath: 'userAPI',
     baseQuery: baseQueryWithReauth,
     endpoints: (build) => ({
-        login: build.mutation<any, loginBody>({
+        login: build.mutation<UserState, loginBody>({
             query: (body) => ({
                 url: '/auth/login',
                 method: 'POST',
@@ -26,7 +27,7 @@ export const userAPI = createApi({
 
 export const checkAuthAPI = createApi({
     reducerPath: 'checkAuthAPI',
-    baseQuery: baseQuery,
+    baseQuery,
     endpoints: (build) => ({
         checkAuth: build.mutation({
             query: () => ({

@@ -3,13 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import './ProjectsSlider.scss'
 import ProjectSlideContent from '../ProjetSlide/ProjectSlideContent';
-import { dataProjects } from '../../../../store/dataProjects';
+import { useFechAllProjectsQuery } from '../../../../service/RTK/ProjectService';
 
 interface ProjectsSliderProps {
     container: any
 }
 
 const ProjectsSlider: FC<ProjectsSliderProps> = ({ container }) => {
+    const { data: projects } = useFechAllProjectsQuery('')
     const [offsetBefore, setOffsetBefore] = useState(0)
     useEffect(() => {
         const containerNode = container.current
@@ -48,8 +49,8 @@ const ProjectsSlider: FC<ProjectsSliderProps> = ({ container }) => {
                     }}
                 >
                     {
-                        dataProjects.map((project) =>
-                            <SwiperSlide key={project.name}><ProjectSlideContent project={project} /></SwiperSlide>
+                        projects?.map((project) =>
+                            <SwiperSlide key={project.id}><ProjectSlideContent project={project} /></SwiperSlide>
                         )
                     }
                 </Swiper>

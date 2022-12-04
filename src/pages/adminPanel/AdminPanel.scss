@@ -1,12 +1,15 @@
-@import '../../style/_global.scss';
+@import '../../style/global';
 
 .adminPanel {
     &__container {
         padding-top: 50px;
+        display: flex;
+        column-gap: 25px;
+        flex-wrap: wrap
     }
 
     &__title {
         @include title();
+        flex: 100%;
     }
-
 }

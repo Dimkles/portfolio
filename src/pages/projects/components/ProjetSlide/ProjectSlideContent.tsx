@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { BACKEND_URL } from '../../../../constants';
 import { IProject } from '../../../../models/IProject';
 import './ProjectSlideContent.scss'
 
@@ -10,7 +11,7 @@ const ProjectSlide: FC<ProjectSlideProps> = ({ project }) => {
     return (
         <div className='projectSlideContent'>
             <div className="projectSlideContent__bg">
-                <img src={`./img/${project.image}`} alt="" />
+                <img src={`${BACKEND_URL}/${project.image}`} alt="" />
             </div>
             <h3 className="projectSlideContent__title">
                 {project.name}
@@ -24,9 +25,9 @@ const ProjectSlide: FC<ProjectSlideProps> = ({ project }) => {
                 </h4>
                 <ul className="projectSlideContent_technologies__list">
                     {
-                        project.technologies.map((item) =>
-                            <li key={item} className='projectSlideContent_technologies__item'>
-                                {item}
+                        project.technologies.map((technology) =>
+                            <li key={technology.id} className='projectSlideContent_technologies__item'>
+                                {technology.name}
                             </li>
                         )
                     }

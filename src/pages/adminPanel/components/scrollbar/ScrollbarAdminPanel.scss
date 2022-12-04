@@ -1,0 +1,41 @@
+@import '../../../../style/global';
+
+.scrollbarAdminPanel {
+    flex: 0 0 20%;
+    @include shadow(0.3);
+    border-radius: 10px;
+    @include bg-black(0.3);
+}
+
+.menuScrollbar {
+    min-height: 300px;
+
+    &__list {
+        padding: 15px 10px;
+    }
+
+    &__item {
+        color: $gray;
+        transition: 0.2s;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        &.active {
+            color: $primary-color;
+        }
+    }
+
+    &__btn {
+        color: inherit;
+        background: none;
+        font-size: 20px;
+    }
+
+
+}

@@ -1,0 +1,19 @@
+@import '../../../../../style/global';
+
+.technologyAdminPanel {
+    padding: 15px 5px;
+    display: flex;
+    align-items: center;
+    @include bg-black(0.3);
+    @include shadow(0.1);
+    gap: 15px;
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    &__name {
+        flex: 1 0 auto;
+        font-size: 20px;
+    }
+}

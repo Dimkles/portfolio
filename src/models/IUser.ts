@@ -1,4 +1,4 @@
-interface roles {
+export interface IRoles {
     id: number
     value: string
     description: string
@@ -8,7 +8,7 @@ interface roles {
 export interface IUser {
     email: string
     id: number
-    roles: roles[]
+    roles: IRoles[]
     banned: boolean,
     banReason: string | null
 }
