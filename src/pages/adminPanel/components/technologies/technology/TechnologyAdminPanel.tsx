@@ -14,7 +14,6 @@ const TechnologyAdminPanel: FC<TechnologyAdminPanelProps> = ({ technology, delet
             <div className="technologyAdminPanel__name">{technology.name}</div>
             <MyButton type='button'>Редактировать</MyButton>
             <MyButton onClick={() => deleteTechnology(technology.id)} variant='red' type='button'>Удалить</MyButton>
-
         </div>
     );
 };

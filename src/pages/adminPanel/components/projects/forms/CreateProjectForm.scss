@@ -1,0 +1,77 @@
+@import '../../../../../style/global';
+
+
+.createProjectForm {
+    &__technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        position: relative;
+        margin-bottom: 45px;
+
+        &-title {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            font-weight: 700;
+            color: $gray;
+        }
+    }
+
+    &__technology {
+        display: block;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 2px solid $gray;
+        cursor: pointer;
+        transition: 0.2s;
+        font-size: 18px;
+
+        &.active {
+            border: 2px solid $primary-color;
+        }
+    }
+
+    &__file {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        padding: 10px 20px;
+        background: #f1d03b;
+        width: fit-content;
+        font-weight: 700;
+        color: #373c3f;
+        border-radius: 10px;
+        transition: 0.2s;
+        margin-bottom: 35px;
+
+        &:hover {
+            background: #bba130;
+        }
+
+        &-name {
+            position: absolute;
+            display: block;
+            width: max-content;
+            top: -25px;
+            left: 0;
+            color: $gray;
+        }
+
+        & input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+
+        &-text {
+            position: absolute;
+            width: 100%;
+            right: -110%;
+            color: $gray;
+        }
+    }
+}

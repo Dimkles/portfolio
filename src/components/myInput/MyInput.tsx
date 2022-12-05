@@ -5,13 +5,18 @@ import './MyInput.scss'
 interface MyInputProps {
     type: 'text' | 'password' | 'email',
     placeholder: string,
-    value: string
+    value: string,
+    name?: string,
     setValue: Dispatch<SetStateAction<string>>
 }
 
-const MyInput: FC<MyInputProps> = ({ type, placeholder, value, setValue }) => {
+const MyInput: FC<MyInputProps> = ({ type, placeholder, value, setValue, name }) => {
     return (
-        <input onChange={(e) => setValue(e.target.value)} value={value} type={type} placeholder={placeholder} className='myInput' />
+        <label className='myInput'>
+            {name && <span className='myInput__name'>{name}</span>}
+            <input onChange={(e) => setValue(e.target.value)} value={value} type={type} placeholder={placeholder} ></input>
+        </label>
+
     );
 };
 

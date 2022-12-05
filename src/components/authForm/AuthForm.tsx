@@ -22,8 +22,8 @@ const AuthForm: FC<AuthFormProps> = ({ onSubmit }) => {
 
     return (
         <form onSubmit={submitHandler} className='authForm'>
-            <MyInput type='email' placeholder='Введите email' value={email} setValue={setEmail} />
-            <MyInput type='password' placeholder='Введите пароль' value={password} setValue={setPassword} />
+            <MyInput name='Email' type='email' placeholder='Введите email' value={email} setValue={setEmail} />
+            <MyInput name='Пароль' type='password' placeholder='Введите пароль' value={password} setValue={setPassword} />
             <MyButton type='submit'>Войти</MyButton>
         </form>
     );

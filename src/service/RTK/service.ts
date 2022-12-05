@@ -11,7 +11,7 @@ export const baseQuery = fetchBaseQuery({
         }
         return headers
     },
-    credentials: 'include'
+    credentials: 'include',
 })
 
 export const baseQueryWithReauth: BaseQueryFn<

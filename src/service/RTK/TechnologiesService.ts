@@ -22,7 +22,7 @@ export const technologiesAPI = createApi({
             query: (name) => ({
                 url: '/technologies',
                 method: 'POST',
-                body: name
+                body: { name: name }
             })
         })
     }),
