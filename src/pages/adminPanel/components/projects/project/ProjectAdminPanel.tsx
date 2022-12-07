@@ -6,9 +6,10 @@ import './ProjectAdminPanel.scss'
 
 interface ProjectAdminPanelProps {
     project: IProject
+    deleteHandler: (id: number) => Promise<void>
 }
 
-const ProjectAdminPanel: FC<ProjectAdminPanelProps> = ({ project }) => {
+const ProjectAdminPanel: FC<ProjectAdminPanelProps> = ({ project, deleteHandler }) => {
     const [activeInfo, setActiveInfo] = useState(false)
     return (
         <div className='projectAdminPanel'>
@@ -23,7 +24,7 @@ const ProjectAdminPanel: FC<ProjectAdminPanelProps> = ({ project }) => {
                     {project.name}
                 </div>
                 <MyButton type='button'>Редактировать</MyButton>
-                <MyButton variant='red' type='button'>Удалить</MyButton>
+                <MyButton onClick={() => deleteHandler(project.id)} variant='red' type='button'>Удалить</MyButton>
             </div>
             <div className={activeInfo ? 'projectAdminPanel__info active' : 'projectAdminPanel__info'}>
                 <p className="projectAdminPanel__description">{project.description}</p>

@@ -12,6 +12,7 @@ export const baseQuery = fetchBaseQuery({
         return headers
     },
     credentials: 'include',
+    mode: 'cors',
 })
 
 export const baseQueryWithReauth: BaseQueryFn<

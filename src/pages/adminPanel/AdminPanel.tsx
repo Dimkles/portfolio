@@ -5,7 +5,7 @@ import ScrollbarAdminPanel from './components/scrollbar/ScrollbarAdminPanel';
 const AdminPanel: FC = () => {
 
 
-    const [contentActive, SetContentActive] = useState('')
+    const [contentActive, SetContentActive] = useState('projects')
 
 
     return (
