@@ -41,7 +41,8 @@ export const checkAuthAPI = createApi({
                 url: '/auth/refresh',
                 method: 'GET',
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-            })
+            }),
+
         }),
     })
 })

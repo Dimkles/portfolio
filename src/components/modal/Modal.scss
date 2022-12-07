@@ -19,11 +19,12 @@
     }
 
     &__content {
-        padding: 40px 20px;
+        padding: 40px 50px;
         border-radius: 10px;
         background-color: rgb(36, 36, 36);
         transition: 0.5s;
         transform: scale(0, 5);
+        min-width: 50vw;
 
         &.active {
 

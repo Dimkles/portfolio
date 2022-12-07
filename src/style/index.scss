@@ -1,3 +1,30 @@
+@import './global';
+
+html {
+  overflow-y: scroll;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $gray $primary-color;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+
+  height: 0px;
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $primary-color;
+  border-radius: 5px;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', 'Oxygen',

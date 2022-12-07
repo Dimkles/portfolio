@@ -36,7 +36,7 @@ export const baseQueryWithReauth: BaseQueryFn<
 > = async (args, api, extraOptions) => {
     await mutex.waitForUnlock()
     let result = await baseQuery(args, api, extraOptions)
-    if (result.error && result.error.status === 401) {
+    if (result.error && (result.error.status === 401 || result.error.status === 403)) {
         if (localStorage.getItem('token')) {
             if (!mutex.isLocked()) {
                 const release = await mutex.acquire()
