@@ -28,6 +28,13 @@ export const userSlice = createSlice({
                 state.isAuth = true
             },
         ).addMatcher(
+            userAPI.endpoints.registration.matchFulfilled,
+            (state, { payload }) => {
+                state.user = payload.user
+                state.token = payload.token
+                state.isAuth = true
+            },
+        ).addMatcher(
             userAPI.endpoints.logout.matchFulfilled,
             (state) => {
                 state.user = {} as IUser

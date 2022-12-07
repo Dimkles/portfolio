@@ -16,6 +16,13 @@ export const userAPI = createApi({
                 body,
             }),
         }),
+        registration: build.mutation<UserState, loginBody>({
+            query: (body) => ({
+                url: '/auth/registration',
+                method: 'POST',
+                body,
+            }),
+        }),
         logout: build.mutation({
             query: () => ({
                 url: '/auth/logout',
@@ -41,4 +48,4 @@ export const checkAuthAPI = createApi({
 
 export const { useCheckAuthMutation } = checkAuthAPI
 
-export const { useLoginMutation, useLogoutMutation } = userAPI
+export const { useLoginMutation, useLogoutMutation, useRegistrationMutation } = userAPI
