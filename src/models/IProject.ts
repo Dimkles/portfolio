@@ -6,5 +6,6 @@ export interface IProject {
     description: string
     technologies: ITechnology[]
     link: string
-    image?: string
+    imagejpg?: string
+    imagewebp?: string
 }

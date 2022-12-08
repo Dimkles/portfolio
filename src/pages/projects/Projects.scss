@@ -9,4 +9,13 @@
         @include title();
     }
 
+    &__list {
+        display: grid;
+        gap: 25px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 1fr;
+        padding-bottom: 50px;
+    }
+
 }

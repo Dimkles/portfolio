@@ -15,7 +15,10 @@ const ProjectAdminPanel: FC<ProjectAdminPanelProps> = ({ project, deleteHandler 
         <div className='projectAdminPanel'>
             <div className="projectAdminPanel__main">
                 <div className='projectAdminPanel__image'>
-                    <img src={`${BACKEND_URL}/${project.image}`} alt="" />
+                    <picture>
+                        {project.imagewebp && <source srcSet={`${BACKEND_URL}/${project.imagewebp}`} type='image/webp' />}
+                        {project.imagejpg && <img src={`${BACKEND_URL}/${project.imagejpg}`} />}
+                    </picture>
                 </div>
                 <div
                     onClick={() => setActiveInfo((prev) => !prev)}
@@ -23,7 +26,7 @@ const ProjectAdminPanel: FC<ProjectAdminPanelProps> = ({ project, deleteHandler 
                 >
                     {project.name}
                 </div>
-                <MyButton type='button'>Редактировать</MyButton>
+                {/* <MyButton type='button'>Редактировать</MyButton> */}
                 <MyButton onClick={() => deleteHandler(project.id)} variant='red' type='button'>Удалить</MyButton>
             </div>
             <div className={activeInfo ? 'projectAdminPanel__info active' : 'projectAdminPanel__info'}>

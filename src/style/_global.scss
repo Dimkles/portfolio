@@ -1,19 +1,22 @@
 $gray: #9aa7af;
 $primary-color: #f1d03b;
 $red: #f13b3b;
+$white: #e2e2e2;
 
 @mixin title {
     font-size: 48px;
     font-weight: bold;
-    line-height: 1.2em;
-    margin-bottom: 100px;
+    line-height: 1.2;
+    margin-bottom: 50px;
 
     @media (max-width: 768px) {
-        margin-bottom: 80px;
+        margin-bottom: 30px;
+        font-size: 38px;
     }
 
     @media (max-width: 425px) {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
+        font-size: 32px;
     }
 }
 

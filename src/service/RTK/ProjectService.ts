@@ -13,7 +13,8 @@ export const projectAPI = createApi({
                 url: '/projects',
                 method: 'GET'
             }),
-            providesTags: resul => ['Project']
+            providesTags: resul => ['Project'],
+
         }),
         deleteProject: build.mutation<any, number>({
             query: (id) => ({
