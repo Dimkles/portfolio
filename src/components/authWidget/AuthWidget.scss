@@ -5,6 +5,11 @@
     gap: 30px;
     align-items: center;
 
+    @media (max-width:968px) {
+        gap: 10px;
+        font-size: 10px;
+    }
+
     &__userEmail {
         color: $gray;
     }

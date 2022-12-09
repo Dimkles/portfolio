@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/dist/query/react";
 import { ITechnology } from "../../models/ITechnology";
-import { baseQueryWithReauth } from "./service";
+import { baseQueryWithReauth, CustomErrorType } from "./service";
 
 export const technologiesAPI = createApi({
     reducerPath: 'technologiesAPI',

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
 import './Menu.scss'
@@ -27,9 +27,23 @@ const adminMenu = [
 
 const Menu: FC = () => {
     const { isAuth, user } = useAppSelector(state => state.user)
+    const [menuACtive, setMenuActive] = useState(false)
     return (
         <nav className='menu'>
-            <ul className="menu__list">
+            <div className="menu__burger">
+                <button
+                    onClick={() => setMenuActive(!menuACtive)}
+                >
+                    <span></span>
+                </button>
+            </div>
+            <div
+                className={menuACtive ? "menu__layer active" : "menu__layer"}
+                onClick={() => setMenuActive(false)}
+            ></div>
+            <ul
+                className={menuACtive ? "menu__list active" : "menu__list"}
+            >
                 {isAuth
                     ?
                     user.roles.some(e => e.value === 'ADMIN')

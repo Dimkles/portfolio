@@ -1,20 +1,20 @@
 .myButton {
     padding: 10px 20px;
-    background: #f1d03b;
+    background: #bba130;
     font-weight: 700;
     color: #373c3f;
     border-radius: 10px;
     transition: 0.2s;
 
     &:hover {
-        background: #bba130;
+        background: #f1d03b;
     }
 
     &--red {
-        background: #f13b3b;
+        background: #bb3030;
 
         &:hover {
-            background: #bb3030;
+            background: #f13b3b;
         }
     }
 }

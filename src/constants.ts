@@ -1,1 +1,1 @@
-export const BACKEND_URL = 'https://api.dimkless.ru'
+export const BACKEND_URL = 'http://localhost:7000'

@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import MyButton from '../../../../../components/myButton/MyButton';
 import MyInput from '../../../../../components/myInput/MyInput';
-import { useCreateTechnologyMutation } from '../../../../../service/RTK/TechnologiesService';
 
 interface CreateTechnologyFormProps {
     submitHandler: any

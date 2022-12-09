@@ -1,0 +1,113 @@
+@import '../../../../style/global';
+
+.projectItem {
+    padding: 15px;
+    position: relative;
+    min-height: 320px;
+    color: $white;
+    font-size: 20px;
+    line-height: 1.1;
+    overflow: hidden;
+    border-radius: 7px;
+    @include shadow(0.6);
+
+    &__bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        & picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+        }
+
+        &::after,
+        &::before {
+            content: '';
+            z-index: 2;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        &::after {
+            background: rgba(0, 0, 0, 0.332);
+        }
+
+        &::before {
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all .3s ease;
+            background: rgba(0, 0, 0, 0.562);
+        }
+    }
+
+    &:hover &__bg {
+        &::before {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &__content {
+        transition: all .3s ease;
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(-100%);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &:hover &__content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &__title {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    &__description {
+        margin-bottom: 20px;
+        flex: 1 0 auto;
+
+        &-item:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+    &__technologies {
+        margin-bottom: 15px;
+
+        &__title {
+            margin-bottom: 10px;
+        }
+
+        &-list {
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    &__link {
+        color: $white;
+        display: inline;
+        font-size: 25px;
+        transition: .2s;
+        width: min-content;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 @import '../../style/global';
 
-.myInput {
+.myTextarea {
     position: relative;
     @include shadow(0.1);
     display: block;
@@ -22,16 +22,18 @@
         font-weight: 700;
     }
 
-    & input {
+    & textarea {
+        min-height: 120px;
         padding: 7px 12px;
         background: none;
         border-radius: 5px;
         font-size: 20px;
         display: block;
         width: 100%;
-        min-width: 300px;
+        min-width: 360px;
         color: #fff;
         transition: 0.2s;
+        resize: none;
 
         &:focus {
             @include shadow(0.2);

@@ -7,7 +7,7 @@ import MyButton from '../myButton/MyButton';
 import './AuthWidget.scss'
 const AuthWidget: FC = () => {
     const { isAuth, user } = useAppSelector(state => state.user)
-    const [modalAuthActive, setModalAuthActive] = useState(false)
+    const [modalActive, setModalActive] = useState(false)
     const [logout] = useLogoutMutation()
     const logoutHandler = async () => {
         await logout('').unwrap()
@@ -22,9 +22,9 @@ const AuthWidget: FC = () => {
             </div>
             :
             <div className="authWidget">
-                <MyButton onClick={() => setModalAuthActive(true)} type='button'>Войти</MyButton>
-                <Modal active={modalAuthActive} setActive={setModalAuthActive}>
-                    <AuthForm onSubmit={setModalAuthActive} />
+                <MyButton onClick={() => setModalActive(true)} type='button'>Войти</MyButton>
+                <Modal active={modalActive} setActive={setModalActive}>
+                    <AuthForm setModalActive={setModalActive} />
                 </Modal>
             </div>
     );
