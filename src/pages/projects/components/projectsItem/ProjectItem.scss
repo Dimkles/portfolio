@@ -1,8 +1,9 @@
-@import '../../../style/global';
+@import '../../../../style/global';
 
 .projectItem {
     padding: 15px;
     position: relative;
+    min-height: 320px;
     color: $white;
     font-size: 20px;
     line-height: 1.1;

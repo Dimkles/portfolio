@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import MyButton from '../../../components/myButton/MyButton';
-import { BACKEND_URL } from '../../../constants';
-import { IProject } from '../../../models/IProject';
+import { BACKEND_URL } from '../../../../constants';
+import { IProject } from '../../../../models/IProject';
 import './ProjectItem.scss';
 interface ProjectItemProps {
     project: IProject
@@ -15,7 +14,7 @@ const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
             <div className="projectItem__bg">
                 <picture>
                     {project.imagewebp && <source srcSet={`${BACKEND_URL}/${project.imagewebp}`} type='image/webp' />}
-                    {project.imagejpg && <img src={`${BACKEND_URL}/${project.imagejpg}`} />}
+                    {project.imagejpg && <img alt={project.name} src={`${BACKEND_URL}/${project.imagejpg}`} />}
                 </picture>
             </div>
             <div className="projectItem__content">
