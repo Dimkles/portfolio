@@ -12,6 +12,8 @@ const AppRouter: FC = () => {
             navigate('/projects')
         } else if (hash === '#contacts') {
             navigate('/contacts')
+        } else if (hash === '#adminPanel') {
+            navigate('/adminPanel')
         }
     })
 
