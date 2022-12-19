@@ -20,7 +20,7 @@ const Projects: FC = () => {
                 <h2 className="projects__title">
                     Проекты
                 </h2>
-                <ProjectsFilter projects={projects} setProject={setFilteredProjects} />
+                <ProjectsFilter projects={projects} setProjects={setFilteredProjects} />
                 {filteredProjects.length
                     ?
                     <div className="projects__list">

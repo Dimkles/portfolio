@@ -8,4 +8,5 @@ export interface IProject {
     link: string
     imagejpg?: string
     imagewebp?: string
+    createdAt: string
 }

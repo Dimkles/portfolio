@@ -1,30 +1,53 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react';
 import MyInput from '../../../../components/myInput/MyInput';
+import MySelect from '../../../../components/mySelect/MySelect';
 import { IProject } from '../../../../models/IProject';
 import './ProjectsFilter.scss'
 
 interface ProjectsFilterProps {
     projects: IProject[] | undefined
-    setProject: Dispatch<SetStateAction<IProject[]>>
+    setProjects: Dispatch<SetStateAction<IProject[]>>
 }
 
-const ProjectsFilter: FC<ProjectsFilterProps> = ({ projects, setProject }) => {
+const ProjectsFilter: FC<ProjectsFilterProps> = ({ projects, setProjects }) => {
 
     const [searchQuery, setSearchQuery] = useState('')
+    const [selectedSort, setSelectedSort] = useState('')
 
-    const searchedProjects = useMemo(() => {
-        if (projects && searchQuery) {
-            return [...projects].filter((project) => project.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    const sortedProjects = useMemo(() => {
+        if (projects) {
+            console.log('ОТРАБОТАЛА СОРТИРОВКА')
+            if (selectedSort === 'old') {
+                return [...projects].sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt))
+            } else if (selectedSort === 'new') {
+                return [...projects].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+            } else {
+                return projects
+            }
         }
-        return projects
-    }, [searchQuery, projects])
+    }, [projects, selectedSort])
+
+    const sortedAndSearchedProjects = useMemo(() => {
+        return sortedProjects?.filter(project => project.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    }, [searchQuery, sortedProjects])
+
+
     useEffect(() => {
-        searchedProjects && setProject([...searchedProjects])
-    }, [searchedProjects, setProject])
+        sortedAndSearchedProjects && setProjects(sortedAndSearchedProjects)
+    }, [sortedAndSearchedProjects, setProjects])
 
     return (
         <div className='projectsFilter'>
             <MyInput name='Поиск' type='text' value={searchQuery} setValue={setSearchQuery} placeholder='Поиск' />
+            <MySelect
+                value={selectedSort}
+                setValue={(sort: string) => setSelectedSort(sort)}
+                defaultValue={'Сортировка'}
+                options={[
+                    { value: 'new', name: 'Сначала новые' },
+                    { value: 'old', name: 'Сначала старые' }
+                ]}
+            />
         </div>
     );
 };
