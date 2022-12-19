@@ -16,7 +16,6 @@ const ProjectsFilter: FC<ProjectsFilterProps> = ({ projects, setProjects }) => {
 
     const sortedProjects = useMemo(() => {
         if (projects) {
-            console.log('ОТРАБОТАЛА СОРТИРОВКА')
             if (selectedSort === 'old') {
                 return [...projects].sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt))
             } else if (selectedSort === 'new') {
