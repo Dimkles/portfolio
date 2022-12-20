@@ -1,6 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react';
 import MyInput from '../../../../components/myInput/MyInput';
-import MyseectCust from '../../../../components/mySelect/MySelect';
 import MySelect from '../../../../components/mySelect/MySelect';
 import { IProject } from '../../../../models/IProject';
 import './ProjectsFilter.scss'
