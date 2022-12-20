@@ -1,26 +1,54 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import './MySelect.scss'
 
-interface MySelectProps {
-    options: { name: string, value: string }[]
-    defaultValue: string
+interface selectedType {
+    name: string
     value: string
-    setValue: any
 }
 
+interface MySelectProps {
+    options: selectedType[]
+    placeholder: string
+    setValue: (value: string) => void
+}
 
-const MySelect: FC<MySelectProps> = ({ options, defaultValue, value, setValue }) => {
+const MySelect: FC<MySelectProps> = ({ options, placeholder, setValue }) => {
+
+    const [show, setShow] = useState(false)
+    const [selected, setSelected] = useState<selectedType>({} as selectedType)
+    const clickHandler = (option: selectedType) => {
+        setSelected(option)
+        setValue(option.value)
+        setShow(false)
+    }
+
     return (
-        <select
-            value={value}
-            onChange={event => setValue(event.target.value)}
-        >
-            <option disabled value=''>{defaultValue}</option>
-            {options.map((option: any) =>
-                <option key={option.value} value={option.value}>
-                    {option.name}
-                </option>
-            )}
-        </select>
+        <div className="mySelect">
+            <button
+                type="button"
+                className={show ? "mySelect__toggle show" : "mySelect__toggle"}
+                onClick={() => setShow(!show)}
+            >
+                {selected.name ? selected.name : placeholder}
+            </button>
+            <div
+                className={show
+                    ? "mySelect__dropdown show"
+                    : "mySelect__dropdown"}
+            >
+                <ul className="mySelect__options">
+                    {options.map(option =>
+                        <li
+                            onClick={() => clickHandler(option)}
+                            key={option.value}
+                            className={selected.value === option.value ? 'mySelect__option selected' : 'mySelect__option'}
+                        >
+                            {option.name}
+                        </li>
+                    )}
+                </ul>
+            </div>
+        </div>
     );
 };
 

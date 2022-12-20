@@ -1,0 +1,61 @@
+@import '../../style/global';
+
+.mySelect {
+    position: relative;
+    color: $gray;
+    font-size: 20px;
+
+    &__toggle {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        padding: 7px 12px;
+        font-size: 20px;
+        color: $white;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0);
+        cursor: pointer;
+        @include shadow(0.1);
+
+        &:hover {
+            @include shadow(0.2);
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: 2.5rem;
+        right: 0;
+        left: 0;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        z-index: 15;
+        transition: all .2s;
+        background-color: rgb(26, 26, 26);
+
+        border-radius: 0.3125rem;
+
+        &.show {
+            opacity: 1;
+            height: min-content;
+        }
+    }
+
+    &__option {
+        padding: 7px 12px;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: rgb(51, 51, 51);
+            cursor: pointer;
+        }
+
+        &.selected {
+            color: $white;
+        }
+    }
+
+}
